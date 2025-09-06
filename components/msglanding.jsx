@@ -1,11 +1,17 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
+import { useRouter } from "next/navigation"
 
 const MsgWhisperLanding = () => {
   const [visibleCards, setVisibleCards] = useState(new Set())
   const cardRefs = useRef([])
   const observerRef = useRef(null)
+  const router = useRouter()
+
+  const handleStartChatting = () => {
+    router.push('/sign-in')
+  }
 
   useEffect(() => {
     observerRef.current = new IntersectionObserver(
@@ -62,7 +68,10 @@ const MsgWhisperLanding = () => {
             </a>
           </div>
 
-          <button className="bg-white text-black px-6 py-2 rounded-full font-medium hover:bg-gray-100 transition-colors">
+          <button 
+            onClick={handleStartChatting}
+            className="bg-white text-black px-6 py-2 rounded-full font-medium hover:bg-gray-100 transition-colors"
+          >
             Start Chatting
           </button>
         </div>
@@ -89,7 +98,10 @@ const MsgWhisperLanding = () => {
             secure conversations that bring people together.
           </p>
 
-          <button className="bg-white text-black px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition-colors mb-16">
+          <button 
+            onClick={handleStartChatting}
+            className="bg-white text-black px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition-colors mb-16"
+          >
             Start Chatting
           </button>
 
@@ -375,7 +387,10 @@ const MsgWhisperLanding = () => {
             around the world.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-black px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition-colors">
+            <button 
+              onClick={handleStartChatting}
+              className="bg-white text-black px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition-colors"
+            >
               Start Chatting
             </button>
           </div>
